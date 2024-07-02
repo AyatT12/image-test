@@ -1,0 +1,79 @@
+  payment dropdown after edit :
+   <div class="col-auto">
+                                                            <img src="img/seacrh-icon.png" alt="icon button to display more data" id="payment-extra-details">
+                                                            <div class="dropdown-content payment-dropdown-content" id="dropdown-content-payment">
+                                                                <div class="data-container">
+                                                                    <div class="row dropdown-content-row">
+                                                                        <div class="col-auto ">
+                                                                            <p>: قيمة الإيجار</p>
+                                                                        </div>
+                                                                        <div class="col personal-data-dropdown">
+                                                                            <p>1520.25</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row dropdown-content-row">
+                                                                        <div class="col-auto ">
+                                                                            <p>: قيمة الخيارات </p>
+                                                                        </div>
+                                                                        <div class="col personal-data-dropdown">
+                                                                            <p>520.45</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row dropdown-content-row">
+                                                                        <div class="col-auto ">
+                                                                            <p>: قيمة الاضافات  </p>
+                                                                        </div>
+                                                                        <div class="col personal-data-dropdown">
+                                                                            <p>560.75</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row dropdown-content-row">
+                                                                        <div class="col-auto ">
+                                                                            <p>: قيمة السائق الاضافي </p>
+                                                                        </div>
+                                                                        <div class="col personal-data-dropdown">
+                                                                            <p>45.25</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row dropdown-content-row">
+                                                                        <div class="col-auto ">
+                                                                            <p>: قيمة السائق الخاص</p>
+                                                                        </div>
+                                                                        <div class="col personal-data-dropdown">
+                                                                            <p>490.25</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="row dropdown-content-row">
+                                                                        <div class="col-auto ">
+                                                                            <p>: قيمة التفويض</p>
+                                                                        </div>
+                                                                        <div class="col personal-data-dropdown">
+                                                                            <p>3.75</p>
+                                                                        </div>
+
+                                                                    </div>  
+                                                                </div>
+                                                            </div>
+                                                           </div>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+css edits for other deropdowns :
+
+.dropdown-content {
+    display: none;
+    border: 1px solid #FF9626;
+    border-radius: 8px;
+    width: 245px;
+    margin-top: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: white;
+    font-size: 0.75rem;
+}
+ 

@@ -1,0 +1,87 @@
+html : 
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rate%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                            <div class="modal" tabindex="-1" id="RateModal" aria-hidden="true"aria-labelledby="RateModalLabel" >
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header rate-modal-header">
+                                      <button type="button" class="btn-close rate-modal-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <h4 class="rate-title"> تقييم المستأجر </h4>
+                                      <div class="row mt-2 p-4 gap-3">
+                                        <div class="col rate-col">
+                                           <div class="rate-card">
+                                            <img src="img/rate/Group (3).svg" class="my-2">
+                                            <p class="rate-text">ممتاز</p>
+                                           </div>
+                                        </div>
+                                        <div class="col rate-col">
+                                            <div class="rate-card">
+                                                <img src="img/rate/Group (2).svg" class="my-2">
+                                            <p class="rate-text">جيد</p>
+                                            </div>
+                                        </div>
+                                        <div class="col rate-col">
+                                           <div class="rate-card">
+                                            <img src="img/rate/Group (1).svg" class="my-2">
+                                            <p class="rate-text">متوسط</p>
+                                           </div>
+                                        </div>
+                                        <div class="col rate-col">
+                                      <div class="rate-card">
+                                        <img src="img/rate/Frame.svg" class="my-2">
+                                        <p class="rate-text">مقبول</p>
+                                      </div>
+                                        </div>
+                                        <div class="col rate-col">
+                                           <div class="rate-card">
+                                            <img src="img/rate/Group.svg" class="my-2">
+                                            <p class="rate-text">سئ</p>
+                                           </div>
+                                        </div>
+                                     </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+css : 
+/* ////////////////////////////////////////Rate///////////////////////////////////////////////// */
+.rate-modal-content{
+    border: 3px solid #FF9626;
+    border-radius: 10px;
+}
+.rate-col{
+    box-shadow: 0px 1px 6px 1px #FF962633;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.rate-col:hover{
+    box-shadow: inset 0px 1px 6px 1px #ff962638;
+    /* color: #39629C;
+    font-weight: 600; */
+}
+.rate-modal-header{
+    border: none;
+}
+.rate-title{
+    color: #FF9626;
+}
+.modal-header .rate-modal-close{
+    margin: calc(-.5* var(--bs-modal-header-padding-y)) calc(-.5* var(--bs-modal-header-padding-x)) calc(-.5* var(--bs-modal-header-padding-y));
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+js  : 
+    <script>
+        var rate
+        const rates = document.querySelectorAll('.rate-card');
+        rates.forEach(div => div.addEventListener('click' , ()=>{
+            rate = div.querySelector('.rate-text').textContent;
+            console.log(rate)
+            $('#RateModal').modal('hide');
+
+        }))
+    </script>

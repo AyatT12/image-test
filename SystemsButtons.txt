@@ -1,0 +1,116 @@
+html :
+  <div class="row button-row align-items-center"
+                                                    style="padding: 6px 7px 0px 20px;">
+                                                    <div class="payment-button-card button-card   gap-2">
+                                                        <button type="submit"
+                                                            class="btn check-btn payment-button">حفظ</button>
+
+                                                        <button type="button"
+                                                            class="btn check-btn payment-button signature-button"
+                                                            data-bs-toggle="modal" href="#PicsignatureModal">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div class="systems-check"> <i
+                                                                            class="fa-solid fa-check text-white"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    توقيع المستأجر
+                                                                </div>
+                                                            </div>
+                                                        </button>
+
+                                                        <button type="button" class="btn check-btn payment-button">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div class="systems-check"> <i
+                                                                            class="fa-solid fa-check text-white"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    العقد الموحد
+                                                                </div>
+                                                            </div>
+                                                        </button>
+                                                        <button type="button" class="btn check-btn payment-button">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div class="systems-check"> <i
+                                                                            class="fa-solid fa-check text-white"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    شموس
+                                                                </div>
+                                                            </div>
+                                                        </button>
+
+                                                    </div>
+                                                    <div class="button-card">
+                                                        <input type="button" name="previous"
+                                                            class="previous action-button-previous" value="السابق" />
+                                                        <img src="Vector.png" alt="Button Image"
+                                                            class="previous action-button-previous"
+                                                            style="vertical-align: middle; margin-right: 10px;">
+                                                    </div>
+                                                </div>
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+css :
+.systems-check{
+   height: 25px;
+   width: 25px;
+   background-color: red;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+    align-items: center;
+}
+.payment-button-card {
+    display: flex;
+    justify-content: center;
+}
+.spinner-payment-check{
+    background-color: white;
+    padding: 0px 70px !important;
+    border: 1px solid orange;
+}
+@media (max-width: 745px) {
+    .payment-button-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    } 
+   
+   
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script :
+    <script>
+        const buttons = document.querySelectorAll('.check-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const originalContent = button.innerHTML;
+
+                const spinner = document.createElement('div');
+                spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-warning');
+                spinner.role = 'status';
+
+                const checkIcon = document.createElement('i');
+                checkIcon.classList.add('fa-solid', 'fa-check');
+
+                button.innerHTML = '';
+                button.appendChild(spinner);
+                button.classList.add('spinner-payment-check');
+
+                setTimeout(() => {
+                    button.innerHTML = originalContent;
+                    const checkDiv = button.querySelector('.row .col-auto .systems-check');
+                    checkDiv.style.backgroundColor = 'green';
+                    button.classList.remove('spinner-payment-check');
+                }, 2000);
+            });
+        });
+    </script>

@@ -1,0 +1,33 @@
+  <div class="row CurrentReadingg_row flex-row-reverse" >
+                                                                   <div class="col-md-6 sett_checkField flex-wrap">
+                                                                    <div class="col-auto">
+                                                                        <label id="CurrentReadingg"
+                                                                            for="CurrentReadingg-input">
+                                                                            القراءة الحالية</label>
+                                                                    </div>
+                                                                    <div class="col-lg-auto  d-flex flex-column align-items-end">
+                                                                        <input type="tel" class="form-control form-control1"
+                                                                            style="width: 140px;"
+                                                                            id="CurrentReadingg-input"
+                                                                            name="CurrentReadingg-input"aria-describedby="inputGroupPrepend" autocomplete="off" required>
+                                                                            <div class="row requird-field-row-last mb-2" style="height: 52px;">
+                                                                             <div class="col-12">
+                                                                                <div class="invalid-feedback" style="display: none;">
+                                                                                    هذا الحقل مطلوب
+                                                                                </div>
+                                                                                <div>
+                                                                                 <span style="font-size: .625rem; color: red;">لا تكون اقل من القراءة الحالية 37985</span>
+                                                                                </div>
+                                                                             </div>
+                                                                           </div> 
+                                                                    </div>
+                                                                   </div>
+                                                                   <div class="col-md-6 sett_checkField">
+                                                                    <div class="col-auto ">
+                                                                        <p> الكيلات الاضافية </p>
+                                                                    </div>
+                                                                    <div class="col personal-data">
+                                                                        <p>161.00</p>
+                                                                    </div>
+                                                                   </div>
+                                                                </div>
