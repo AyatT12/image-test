@@ -1408,6 +1408,14 @@ input[type=checkbox] {
     margin: calc(-.5* var(--bs-modal-header-padding-y)) calc(-.5* var(--bs-modal-header-padding-x)) calc(-.5* var(--bs-modal-header-padding-y));
 }
 /* ////////////////////////////////////////Signature///////////////////////////////////////////////// */
+.upload-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .signature-modal-content {
     width: 300px;
 }
