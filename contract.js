@@ -48,120 +48,96 @@ $(".previous").click(function () {
   // Hide the current fieldset with style
   current_fs.hide();
 });
-
 ///////////////////////////////////////////////the-Modal-6-digit-vaildation/////////////////////
-function openThirdPopup() {
-  // Hide the second popup modal
-  $("#checkModalToggle").modal("hide");
-
-  // Open the third popup modal
-  $("#thirdPopupModal").modal("show");
-
-  // Close the third popup modal after 5 seconds
-  setTimeout(function () {
-    $("#thirdPopupModal").modal("hide");
-  }, 5000); // Adjust the duration as needed (in milliseconds)
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#otc").addEventListener("submit", function (event) {
-    event.preventDefault();
-    var inputFieldValue = document.getElementById("otc-1");
-    var numericValue = parseInt(inputFieldValue.value);
+      event.preventDefault();
+      var inputFieldValue = document.getElementById("otc-1");
+      var numericValue = parseInt(inputFieldValue.value);
 
-    if (isNaN(numericValue)) {
-      // Input value is not a number or is empty
-      console.log("Input value:", numericValue);
-      return;
-    }
-    $.ajax({
-      type: "POST",
-      url: "https://jsonplaceholder.typicode.com/posts", // Using JSONPlaceholder as a mock server
-      data: $(this).serialize(),
-      success: function (response) {
-        // Handle the response from the mock server
-        console.log("Form data submitted successfully:", response);
-        openThirdPopup();
-      },
-      error: function (error) {
-        // Handle any errors
-        console.error("Error submitting form data:", error);
-      },
-    });
-    document.getElementById("otc-1").value = "";
-    document.getElementById("otc-2").value = "";
-    document.getElementById("otc-3").value = "";
-    document.getElementById("otc-4").value = "";
-    document.getElementById("otc-5").value = "";
-    document.getElementById("otc-6").value = "";
+      if (isNaN(numericValue)) {
+          console.log("Input value:", numericValue);
+          return;
+      }
+
+      $.ajax({
+          type: "POST",
+          url: "https://jsonplaceholder.typicode.com/posts",
+          data: $(this).serialize(),
+          success: function (response) {
+              console.log("Form data submitted successfully:", response);
+              $('#checkModalToggle').modal("hide");
+          },
+          error: function (error) {
+              console.error("Error submitting form data:", error);
+          },
+      });
+
+      document.getElementById("otc-1").value = "";
+      document.getElementById("otc-2").value = "";
+      document.getElementById("otc-3").value = "";
+      document.getElementById("otc-4").value = "";
+      document.getElementById("otc-5").value = "";
+      document.getElementById("otc-6").value = "";
   });
+
+  let in1 = document.getElementById("otc-1"),
+      ins = document.querySelectorAll('input[type="number"]'),
+      splitNumber = function (e) {
+          let data = e.data || e.target.value;
+          if (!data) return;
+          if (data.length === 1) return;
+
+          popuNext(e.target, data);
+      },
+      popuNext = function (el, data) {
+          el.value = data[0];
+          data = data.substring(1);
+          if (el.nextElementSibling && data.length) {
+              popuNext(el.nextElementSibling, data);
+          }
+      };
+
+  ins.forEach(function (input) {
+      input.addEventListener("keyup", function (e) {
+          if (e.keyCode === 16 || e.keyCode == 9 || e.keyCode == 224 || e.keyCode == 18 || e.keyCode == 17) {
+              return;
+          }
+
+          if ((e.keyCode === 8 || e.keyCode === 37) && this.previousElementSibling && this.previousElementSibling.tagName === "INPUT") {
+              this.previousElementSibling.select();
+          } else if (e.keyCode !== 8 && this.nextElementSibling) {
+              this.nextElementSibling.select();
+          }
+
+          if (e.target.value.length > 1) {
+              splitNumber(e);
+          }
+      });
+
+      input.addEventListener("focus", function () {
+          if (this.previousElementSibling && this.previousElementSibling.value === "") {
+              this.previousElementSibling.focus();
+          }
+      });
+
+      input.addEventListener("blur", function () {
+          window.scrollTo(0, 0);
+      });
+  });
+
+  in1.addEventListener("input", splitNumber);
 });
 
-let in1 = document.getElementById("otc-1"),
-  ins = document.querySelectorAll('input[type="number"]'),
-  splitNumber = function (e) {
-    let data = e.data || e.target.value; // Chrome doesn't get the e.data, it's always empty, fallback to value then.
-    if (!data) return; // Shouldn't happen, just in case.
-    if (data.length === 1) return; // Here is a normal behavior, not a paste action.
+document.addEventListener('touchmove', function(event) {
+  if (document.body.classList.contains('modal-open')) {
+      event.preventDefault();
+  }
+}, { passive: false });
 
-    popuNext(e.target, data);
-  },
-  popuNext = function (el, data) {
-    el.value = data[0]; // Apply first item to first input
-    data = data.substring(1); // remove the first char.
-    if (el.nextElementSibling && data.length) {
-      // Do the same with the next element and next data
-      popuNext(el.nextElementSibling, data);
-    }
-  };
-
-ins.forEach(function (input) {
-  /**
-	 * Control on keyup to catch what the user intent to do.
-	 ... */
-  input.addEventListener("keyup", function (e) {
-    // Break if Shift, Tab, CMD, Option, Control.
-    if (
-      e.keyCode === 16 ||
-      e.keyCode == 9 ||
-      e.keyCode == 224 ||
-      e.keyCode == 18 ||
-      e.keyCode == 17
-    ) {
-      return;
-    }
-
-    // On Backspace or left arrow, go to the previous field.
-    if (
-      (e.keyCode === 8 || e.keyCode === 37) &&
-      this.previousElementSibling &&
-      this.previousElementSibling.tagName === "INPUT"
-    ) {
-      this.previousElementSibling.select();
-    } else if (e.keyCode !== 8 && this.nextElementSibling) {
-      this.nextElementSibling.select();
-    }
-
-    // If the target is populated too quickly, value length can be > 1
-    if (e.target.value.length > 1) {
-      splitNumber(e);
-    }
-  });
-
-  input.addEventListener("focus", function (e) {
-    if (this === in1) return;
-
-    if (in1.value == "") {
-      in1.focus();
-    }
-    if (this.previousElementSibling.value == "") {
-      this.previousElementSibling.focus();
-    }
-  });
-  const B = document.querySelector(".check-btn.check");
+$('#checkModalToggle').on('shown.bs.modal', function () {
+  document.getElementById('otc-1').focus();
 });
-in1.addEventListener("input", splitNumber);
-
 // // //////////////////////choose-adriver-display////////////////
 document.addEventListener("DOMContentLoaded", function () {
   var driverRadio1 = document.getElementById("driver1");
