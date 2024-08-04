@@ -17,7 +17,12 @@ body {
     position: relative;
 
 }
-
+body.modal-open {
+    overflow: hidden;
+}
+input.OTP {
+    caret-color: transparent; /* Hide caret */
+}
 .inputs,
 .textarea-inputs,
 .form-select-driver,
