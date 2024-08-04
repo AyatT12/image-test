@@ -119,7 +119,7 @@
                         <!-- Dropdown - Messages -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-left shadow animated--grow-in"
                             aria-labelledby="messagesDropdown" style="direction: ltr;">
-                            <h6 class="dropdown-header" style="background-color: #FF992E">
+                            <h6 class="dropdown-header" style="background-color: #034b9e">
                                 مركز الرسائل
                             </h6>
                             <a class="dropdown-item d-flex align-items-center" href="#">
@@ -404,7 +404,7 @@
 
                                                         <div class="col-auto" style="margin-bottom: 32px;">
                                                             <button type="button" class="btn check-btn"
-                                                                data-bs-toggle="modal" href="#signature-modal"
+                                                                data-bs-toggle="modal" href="#checkModalToggle"
                                                                 onclick="TimerFunction('renterFieldButton')"
                                                                 id="renterFieldButton">تحقق</button>
                                                         </div>
@@ -936,7 +936,7 @@
 
                                                         <div class="col-auto" style="margin-bottom: 32px;">
                                                             <button type="button" class="btn check-btn"
-                                                                data-bs-toggle="modal" href="#RateModal"
+                                                                data-bs-toggle="modal" href="#checkModalToggle"
                                                                 onclick="TimerFunction('DriverCheckButton')"
                                                                 id="DriverCheckButton">تحقق</button>
                                                         </div>
@@ -1681,41 +1681,7 @@
                                                                             <td></td>
 
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                ۲۰:۰۰
-                                                                            </td>
-                                                                            <td></td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                ۲۰:۰۰
-                                                                            </td>
-                                                                            <td></td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                ۲۰:۰۰
-                                                                            </td>
-                                                                            <td></td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                ۲۰:۰۰
-                                                                            </td>
-                                                                            <td></td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                ۲۰:۰۰
-                                                                            </td>
-                                                                            <td></td>
-
-                                                                        </tr>
+                                                                        
                                                                         <tr>
                                                                             <td class="text-center">۰۰:۰۰
                                                                             </td>
@@ -1806,208 +1772,211 @@
                                                         </div>
 
                                                         <div class="col-lg-6">
-                                                            <div class="table-scroll">
-                                                                <table class="table table-bordered  table-hover">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col" class="value-tabel-header">
-                                                                                ملاحظات
-                                                                            </th>
-                                                                            <th scope="col"
-                                                                                style='border-left: 1px solid #ff9626a3; '>
-                                                                                بنود الفحص</th>
-
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="Tires-textarea" maxlength="100"
-                                                                                    name="Tires-textarea"></textarea>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class="options-col">
-                                                                                    <label class="Tires" for="Tires">
-                                                                                        الإطارات
-
+                                                            <div id="referenceDiv">
+                                                            
+                                                                <div id="tableContainer" class="table-scroll">
+                                                                    <table class="table table-bordered  table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col" class="value-tabel-header">
+                                                                                    ملاحظات
+                                                                                </th>
+                                                                                <th scope="col"
+                                                                                    style='border-left: 1px solid #ff9626a3; '>
+                                                                                    بنود الفحص</th>
+    
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="Tires-textarea" maxlength="100"
+                                                                                        name="Tires-textarea"></textarea>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="options-col">
+                                                                                        <label class="Tires" for="Tires">
+                                                                                            الإطارات
+    
+                                                                                        </label>
+                                                                                        <input class="Tires-input"
+                                                                                            type="checkbox"
+                                                                                            name="Examination-items"
+                                                                                            value="Tires" id="Tires">
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+    
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="lights-textarea" maxlength="100"
+                                                                                        name="lights-textarea"></textarea>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="">
+                                                                                        <label class="lights" for="lights">
+                                                                                            الأنوار
+    
+                                                                                        </label>
+                                                                                        <input class="lights-input"
+                                                                                            type="checkbox"
+                                                                                            name="Examination-items"
+                                                                                            value="lights" id="lights">
+    
+                                                                                    </div>
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="Air_conditioner-textarea"
+                                                                                        maxlength="100"
+                                                                                        name="Air_conditioner-textarea"></textarea>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="">
+                                                                                        <label class="Air_conditioner"
+                                                                                            for="Air_conditioner">
+                                                                                            المكيف
+    
+                                                                                        </label>
+                                                                                        <input class="Air_conditioner-input"
+                                                                                            type="checkbox"
+                                                                                            name="Examination-items"
+                                                                                            value="Air_conditioner"
+                                                                                            id="Air_conditioner">
+                                                                                    </div>
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="Safety_Security-textarea"
+                                                                                        maxlength="100"
+                                                                                        name="Safety_Security-textarea"></textarea>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="">
+                                                                                        <label class="Safety_Security"
+                                                                                            for="Safety_Security">
+                                                                                            الأمن والسلامة
+    
+                                                                                        </label>
+                                                                                        <input class="Safety_Security-input"
+                                                                                            type="checkbox"
+                                                                                            name="Examination-items"
+                                                                                            value="Safety_Security"
+                                                                                            id="Safety_Security">
+                                                                                    </div>
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="wiper-textarea" maxlength="100"
+                                                                                        name="wiper-textarea"></textarea>
+                                                                                </td>
+                                                                                <td class="">
+                                                                                    <label class="wiper" for="wiper">
+                                                                                        المساحات
+    
                                                                                     </label>
-                                                                                    <input class="Tires-input"
+                                                                                    <input class="wiper-input"
                                                                                         type="checkbox"
                                                                                         name="Examination-items"
-                                                                                        value="Tires" id="Tires">
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="lights-textarea" maxlength="100"
-                                                                                    name="lights-textarea"></textarea>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class=" options-col">
-                                                                                    <label class="lights" for="lights">
-                                                                                        الأنوار
-
+                                                                                        value="wiper" id="wiper">
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="signals-textarea"
+                                                                                        maxlength="100"
+                                                                                        name="signals-textarea"></textarea>
+                                                                                </td>
+                                                                                <td class="">
+                                                                                    <label class="signals" for="signals">
+                                                                                        الإشارات
+    
                                                                                     </label>
-                                                                                    <input class="lights-input"
+                                                                                    <input class="signals-input"
                                                                                         type="checkbox"
                                                                                         name="Examination-items"
-                                                                                        value="lights" id="lights">
-
-                                                                                </div>
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="Air_conditioner-textarea"
-                                                                                    maxlength="100"
-                                                                                    name="Air_conditioner-textarea"></textarea>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class=" options-col">
-                                                                                    <label class="Air_conditioner"
-                                                                                        for="Air_conditioner">
-                                                                                        المكيف
-
+                                                                                        value="signals" id="signals">
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="cleanliness-textarea"
+                                                                                        maxlength="100"
+                                                                                        name="cleanliness-textarea"></textarea>
+                                                                                </td>
+                                                                                <td class="">
+                                                                                    <label class="cleanliness"
+                                                                                        for="cleanliness">
+                                                                                        النظافة
+    
                                                                                     </label>
-                                                                                    <input class="Air_conditioner-input"
+                                                                                    <input class="cleanliness-input"
                                                                                         type="checkbox"
                                                                                         name="Examination-items"
-                                                                                        value="Air_conditioner"
-                                                                                        id="Air_conditioner">
-                                                                                </div>
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="Safety_Security-textarea"
-                                                                                    maxlength="100"
-                                                                                    name="Safety_Security-textarea"></textarea>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class=" options-col">
-                                                                                    <label class="Safety_Security"
-                                                                                        for="Safety_Security">
-                                                                                        الأمن والسلامة
-
+                                                                                        value="cleanliness"
+                                                                                        id="cleanliness">
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="Front_brake-textarea"
+                                                                                        maxlength="100"
+                                                                                        name="Front_brake-textarea"></textarea>
+                                                                                </td>
+                                                                                <td class="">
+                                                                                    <label class="Front_brake "
+                                                                                        for="Front_brake">
+                                                                                        الفرامل الأمامية
+    
                                                                                     </label>
-                                                                                    <input class="Safety_Security-input"
+                                                                                    <input class="Front_brake-input"
                                                                                         type="checkbox"
                                                                                         name="Examination-items"
-                                                                                        value="Safety_Security"
-                                                                                        id="Safety_Security">
-                                                                                </div>
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="wiper-textarea" maxlength="100"
-                                                                                    name="wiper-textarea"></textarea>
-                                                                            </td>
-                                                                            <td class=" options-col">
-                                                                                <label class="wiper" for="wiper">
-                                                                                    المساحات
-
-                                                                                </label>
-                                                                                <input class="wiper-input"
-                                                                                    type="checkbox"
-                                                                                    name="Examination-items"
-                                                                                    value="wiper" id="wiper">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="signals-textarea"
-                                                                                    maxlength="100"
-                                                                                    name="signals-textarea"></textarea>
-                                                                            </td>
-                                                                            <td class=" options-col">
-                                                                                <label class="signals" for="signals">
-                                                                                    الإشارات
-
-                                                                                </label>
-                                                                                <input class="signals-input"
-                                                                                    type="checkbox"
-                                                                                    name="Examination-items"
-                                                                                    value="signals" id="signals">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="cleanliness-textarea"
-                                                                                    maxlength="100"
-                                                                                    name="cleanliness-textarea"></textarea>
-                                                                            </td>
-                                                                            <td class=" options-col">
-                                                                                <label class="cleanliness"
-                                                                                    for="cleanliness">
-                                                                                    النظافة
-
-                                                                                </label>
-                                                                                <input class="cleanliness-input"
-                                                                                    type="checkbox"
-                                                                                    name="Examination-items"
-                                                                                    value="cleanliness"
-                                                                                    id="cleanliness">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="Front_brake-textarea"
-                                                                                    maxlength="100"
-                                                                                    name="Front_brake-textarea"></textarea>
-                                                                            </td>
-                                                                            <td class=" options-col">
-                                                                                <label class="Front_brake "
-                                                                                    for="Front_brake">
-                                                                                    الفرامل الأمامية
-
-                                                                                </label>
-                                                                                <input class="Front_brake-input"
-                                                                                    type="checkbox"
-                                                                                    name="Examination-items"
-                                                                                    value="Front_brake"
-                                                                                    id="Front_brake">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                <textarea class="check-table-notes"
-                                                                                    id="Rear_brake-textarea"
-                                                                                    maxlength="100"
-                                                                                    name="Rear_brake-textarea"></textarea>
-                                                                            </td>
-                                                                            <td class=" options-col">
-                                                                                <label class="Rear_brake"
-                                                                                    for="Rear_brake">
-                                                                                    الفرامل الخلفية
-
-                                                                                </label>
-                                                                                <input class="Rear_brake-input"
-                                                                                    type="checkbox"
-                                                                                    name="Examination-items"
-                                                                                    value="Rear_brake" id="Rear_brake">
-                                                                            </td>
-
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                                                        value="Front_brake"
+                                                                                        id="Front_brake">
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="text-center">
+                                                                                    <textarea class="check-table-notes"
+                                                                                        id="Rear_brake-textarea"
+                                                                                        maxlength="100"
+                                                                                        name="Rear_brake-textarea"></textarea>
+                                                                                </td>
+                                                                                <td class="">
+                                                                                    <label class="Rear_brake"
+                                                                                        for="Rear_brake">
+                                                                                        الفرامل الخلفية
+    
+                                                                                    </label>
+                                                                                    <input class="Rear_brake-input"
+                                                                                        type="checkbox"
+                                                                                        name="Examination-items"
+                                                                                        value="Rear_brake" id="Rear_brake">
+                                                                                </td>
+    
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
 
@@ -2717,36 +2686,7 @@
 
         }))
     </script>
-    <!-- <script>
-        let count = 0;
-        const box = document.getElementById("container");
-        const container = document.getElementById("box");
-        const inbox = document.getElementById("inner-container");
-
-        function startLoader() {
-            count = 0;
-            updateProgress();
-            nextLoader();
-        }
-
-        function updateProgress() {
-            box.innerHTML = count + "%";
-        }
-
-        function nextLoader() {
-            inbox.style.width = count * 1 + "%";
-            if (count < 100) {
-                count++;
-                updateProgress();
-                setTimeout(nextLoader, 900);
-            } else {
-                container.style.opacity = "1";
-            }
-        }
-
-        document.querySelector(".start").addEventListener("click", startLoader);
-    </script> -->
-
+  
     <script>
         const buttons = document.querySelectorAll('.payment-button');
 
